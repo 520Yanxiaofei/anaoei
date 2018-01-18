@@ -21,7 +21,7 @@ var responseJSON = function(res, ret) {
 router.get('/addUser', function(req, res, next) {
     // 从连接池获取连接 
     // pool.getConnection(function(err, connection) {
-    // 获取前台页面传过来的参数  
+    // 获取前台页面传过来的参数  queryAll
     var param = req.query || req.params;
     // 建立连接 增加一个用户信息 
     pool.query(userSQL.insert, [param.id, param.name], function(err, result) {

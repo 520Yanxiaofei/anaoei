@@ -1,31 +1,18 @@
-// pages/resume/resume.js
+// pages/resume/detai/detai.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    articleData:[]
+  
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.showLoading({
-      title: '加载中',
-    })
-
-    wx.request({
-      url: 'http://www.eachfight.com:3000/add_users/addUser', //仅为示例，并非真实的接口地址
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success:  (res)=>{
-        wx.hideLoading()
-        this.setData({articleData:res.data.data})
-      }
-    })
+  
   },
 
   /**
