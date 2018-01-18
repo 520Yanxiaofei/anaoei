@@ -1,0 +1,76 @@
+<!--index.wxml-->
+<!-- <view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="page__bd page__bd_spacing">
+        <view class="weui-flex">
+            <view class="weui-flex__item"><view class="placeholder">weui</view></view>
+        </view>
+        <view class="weui-flex">
+            <view class="weui-flex__item"><view class="placeholder">weui</view></view>
+            <view class="weui-flex__item"><view class="placeholder">weui</view></view>
+        </view>
+        <view class="weui-flex">
+            <view class="weui-flex__item"><view class="placeholder">weui</view></view>
+            <view class="weui-flex__item"><view class="placeholder">weui</view></view>
+            <view class="weui-flex__item"><view class="placeholder">weui</view></view>
+        </view>
+        <view class="weui-flex">
+            <view class="weui-flex__item"><view class="placeholder">weui</view></view>
+            <view class="weui-flex__item"><view class="placeholder">weui</view></view>
+            <view class="weui-flex__item"><view class="placeholder">weui</view></view>
+            <view class="weui-flex__item"><view class="placeholder">weui</view></view>
+        </view>
+        <view class="weui-flex">
+            <view><view class="placeholder">weui</view></view>
+            <view class="weui-flex__item"><view class="placeholder">weui</view></view>
+            <view><view class="placeholder">weui</view></view>
+        </view>
+    </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+</view> -->
+<view class="page">
+    <view class="page__hd">
+    <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <view class="music active">
+    	<view class='line'></view>
+      <view class='line'></view>
+    	<view class='line'></view>
+      <view class='line'></view>
+    	<view class='line'></view>
+    	<view class='line'></view>
+    </view>
+        <view class="page__title">欢迎您，{{userInfo.nickName}}</view>
+        <view class="page__desc">此小程序仅用于个人简历展示，分享，学习用途</view>
+    </view>
+    <view class="page__bd">
+        <view class="weui-grids">
+            <block wx:for="{{grids}}" wx:key="id">
+               <block wx:if="{{item.onTap!=undefind}}">
+                 <view bindtap="{{item.onTap}}"  class="weui-grid">
+                 <image class="weui-grid__icon" src="{{item.icon}}" />
+                    <view class="weui-grid__label">{{item.name}}</view>
+                 </view>
+               </block>
+               <block wx:else>
+                 <navigator url="{{item.url}}" class="weui-grid" hover-class="weui-grid_active">
+                    <image class="weui-grid__icon" src="{{item.icon}}" />
+                    <view class="weui-grid__label">{{item.name}}</view>
+                </navigator>
+               </block>
+            </block>
+        </view>
+    </view>
+    
+    <view class='index-text_align'>
+     <text class='page__desc'>哈，你好，你访客排名</text>
+     <view class="page__fangke">{{ c1 }}</view>
+    </view>
+</view>

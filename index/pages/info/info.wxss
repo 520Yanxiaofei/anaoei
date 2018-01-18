@@ -1,0 +1,4 @@
+/* pages/info/info.wxss */
+.weui-cell{
+  padding:20px 15px
+}

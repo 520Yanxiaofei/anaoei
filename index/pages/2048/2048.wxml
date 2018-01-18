@@ -1,0 +1,57 @@
+<view class="page">
+
+  <view class="game-body">
+    <loading hidden="{{hidden}}">
+        加载中...
+    </loading>
+    <view>
+      
+    </view>
+    <view class="heading tagTextAlign">
+         <view class="weui-article__h1">你能拿到2048吗？</view>
+      	<text class="restart-button" bindtap="restart">重来一次</text>
+    </view>
+     <view class="weui-flex">
+            <view class="weui-flex__item tagTextAlign">
+             <view class="weui-article__h3">当前得分</view>
+    <view class="weui-article__h1"> {{score}}</view>
+            </view>
+            <view class="weui-flex__item tagTextAlign">
+             <view class="weui-article__h3">最高得分</view>
+    <view class="weui-article__h1"> {{highscore}}</view>
+            </view>
+        </view>
+
+
+   
+   
+ 
+  <view class='grid-position'>
+    <view class="game-container">
+        <view class="game-message game-{{over ? (win ? 'won' : 'over') : ''}}">
+          	<text class="over-msg">{{overMsg}}</text>
+          	<view class="lower">
+	        	<!-- <text class="keep-playing-button">继续</text> -->
+          		<text class="retry-button" bindtap="restart">再试一次</text>
+        	</view>
+        </view>
+    
+	    <view class="grid-container" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd">
+			<view wx:for="{{grids}}" wx:key="rowIdx" wx:for-index="rowIdx"  wx:for-item="row" class="grid-row">
+			  	<view wx:for="{{row}}" wx:key="colIdx" wx:for-index="colIdx" wx:for-item="cell" class="grid-cell">
+			  		<view class="tile tile-{{cell.value}}">
+			  			<view wx:if="{{cell}}" class="tile-inner">
+			      			{{cell.value}}
+			      		</view>
+			  		</view>
+			  	</view>
+			</view>
+	    </view>
+      </view>
+  	</view>
+    </view>
+  	<!-- <view class="game-explanation">
+      <view class="important">如何开始：</view> 手指上下左右滑动
+    </view> -->
+
+</view>
