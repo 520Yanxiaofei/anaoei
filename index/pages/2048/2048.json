@@ -1,0 +1,6 @@
+{
+    "navigationBarTitleText": "2048小游戏",
+    "navigationBarBackgroundColor":"#fff",
+    "backgroundTextStyle":"#776e65",
+    "disableScroll": true
+}
