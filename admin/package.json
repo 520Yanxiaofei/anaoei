@@ -4,8 +4,7 @@
   "private": true,
    "scripts": {
     "start": "node ./bin/www",
-    "dev": "./node_modules/.bin/nodemon bin/www",
-    "pm2": "pm2 start ./bin/www --name anaoei-node-api"
+    "dev": "./node_modules/.bin/nodemon bin/www"
   },
   "dependencies": {
     "body-parser": "~1.18.2",
