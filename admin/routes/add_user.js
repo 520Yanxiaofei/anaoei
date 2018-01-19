@@ -24,11 +24,11 @@ router.get('/addUser', function(req, res, next) {
     // 获取前台页面传过来的参数  queryAll
     var param = req.query || req.params;
     // 建立连接 增加一个用户信息 
-    pool.query(userSQL.insert, [param.id, param.name], function(err, result) {
+    pool.query(userSQL.queryAll, function(err, result) {
         if (result) {
             result = {
                 code: 200,
-                msg: '添加成功',
+                msg: '查询成功',
                 data: result
             };
         }
