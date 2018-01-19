@@ -97,6 +97,23 @@ cat 文件名称（查看文件）
 14，对数据库进行管理，后台管理系统地址进入
 http://bxu2713730129.my3w.com/public/admin/
 
+
+15，自动化部署
+在当前目录创建
+#!/bin/sh
+touch push.sh
+chmod +x push.sh
+vim push.sh
+如
+git reset --hard origin/master
+git clean -f
+git pull origin master
+npm install
+pm2 start ./bin/www -name anaoei-node-api
+echo 嗨，anaoei,自动化部署成功！
+保存后
+输入./push/sh
+
 完结
 
 小程序发布时，接口必须是域名不加端口，要配置真实域名才能访问，认证ssl，带https。
@@ -140,9 +157,61 @@ Now using node v7.4.0
 
 node开发自动更新代码服务
 npm install -g nodemon 
+注意，有可能没启动到自己的服务
+在项目根目录下package.json加上一行"dev":"./node_modules/.bin/nodemon bin/www"
+启动npm run dev即可
+注意：ln -s /usr/local/src/node-v8.9.4-linux-x64/bin/nodemon /usr/local/bin/nodemon
+加入到全局变量中
+
+
+使用 pm2-web 监控 pm2 服务运行状态
+pm2-web 是一款 pm2 服务状态监控程序，基于 web 。
+
+安装
+
+$ npm install -g pm2-web
+
+运行(默认是在8080端口)
+
+$ pm2-web
+
+配置
+
+pm2-web 将会加载默认的配置文件（如果存在） 
+pm2-web will load one of the following files if they exist (in order of preference)
+
+A file specified by the --config /path/to/config.json argument
+From the current users' home directory: ~/.config/pm2-web/config.json
+A global configuration file: /etc/pm2-web/config.json自定义配置文件 
+通过 --config yourFile 指定加载的配置文件 
+新建 pm2-web-config.json 文件:
+{
+    "www": {
+        "host": "localhost",
+        "address": "0.0.0.0",
+        "port": 10016
+    }                         
+}
+
+运行 pm2-web: 
+$pm2-web --config pm2-web-config.json
+访问 localhost:10016
+可以在 web 界面查看 pm2 服务运行状态，点击按钮进行 stop restart reload 等操作。
 
 
 
+是不是很神奇，接下来把pm2加入系统启动中。
+[root@localhost www]# pm2 startup centos
+[PM2] Generating system init script in /etc/init.d/pm2-init.sh
+[PM2] Making script booting at startup...
+[PM2] /var/lock/subsys/pm2-init.sh lockfile has been added
+[PM2] -centos- Using the command:
+      su -c "chmod +x /etc/init.d/pm2-init.sh; chkconfig --add pm2-init.sh"
+
+[PM2] Done.
+[root@localhost www]# pm2 save
+[PM2] Dumping processes
+要保存一下！
 
 
 
@@ -162,7 +231,7 @@ pm2 是一个带有负载均衡功能的Node应用的进程管理器.
 2 关闭命令窗口，node进程仍然会运行。而node命令运行的关闭窗口后，进程也就关闭了。
 安装
 npm install -g pm2
-
+注意，要启动时，必须指定路径，如pm2 start ./bin/www --watch
 用法
 $ npm install pm2 -g     # 命令行安装 pm2 
 $ pm2 start app.js -i 4 #后台运行pm2，启动4个app.js 

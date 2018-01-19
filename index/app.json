@@ -1,12 +1,13 @@
 {
   "pages": [
-    "pages/resume/resume",
     "pages/index/index",
     "pages/logs/logs",
     "pages/detai/detai",
     "pages/system/system",
     "pages/info/info",
     "pages/2048/2048",
+    "pages/resume/resume",
+    "pages/resume/detai",
     "pages/resume/detai/detai"
   ],
   "window": {
