@@ -5,7 +5,7 @@
 3，输入ssh相关账户 
 IP:101.132.144.219(公)
 端口：22
-帐号：guochao
+帐号：###
 密码：aCBCYxk9YqpsS8ab
 
 4，创建成功后，查看cd .. 到最顶层
@@ -67,8 +67,8 @@ tar zxvf anaoei-node-api.tar.gz -C anaoei-node-api（指定的目录文件夹）
 数据库1
  mysql: {
         host: '101.132.144.219',
-        user: 'root',
-        password: 'pigge',
+        user: '###',
+        password: '###',
         port: '3306',
         database: 'anaoei_admin'
     }
@@ -77,8 +77,8 @@ tar zxvf anaoei-node-api.tar.gz -C anaoei-node-api（指定的目录文件夹）
 我的数据库2
 mysql: {
         host: 'bdm294739102.my3w.com',
-        user: 'bdm294739102',
-        password: 'bdm294739102',
+        user: '###',
+        password: '###',
         port: '3306',
         database: 'bdm294739102_db',
         insecureAuth: true
